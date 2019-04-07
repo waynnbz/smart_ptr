@@ -1,0 +1,121 @@
+using namespace std;
+
+
+// int main()
+// {
+// 	/*int *p{ new int(1) };
+
+// 	smart_ptr<int> ptr(p);
+
+// 	smart_ptr<int> ptr2(ptr);
+
+// 	*ptr = 2;
+
+
+
+// 	std::cout << ptr2.ref_count() << std::endl;
+
+// 	std::cout << *ptr2 << std::endl;
+
+// 	std::cout << ptr.ref_count() << std::endl;
+
+// 	std::cout << *ptr << std::endl;
+
+// 	std::cout << "compile\n";*/
+
+// 	//------------------------------------------------
+
+// 	//int* p{ new int { 42 } };
+// 	//smart_ptr<int> sp1{ p };
+
+// 	//cout << "Ref count is " << sp1.ref_count() << endl;	// Ref Count is 1
+// 	//{
+// 	//	smart_ptr<int> sp2{ sp1 };
+// 	//	cout << "Ref count is " << sp1.ref_count() << endl;	// Ref Count is 2
+// 	//	cout << "Ref count is " << sp2.ref_count() << endl;	// Ref Count is 2
+// 	//}
+// 	//cout << "Ref count is " << sp1.ref_count() << endl;	// Ref Count is 1
+
+// 	//smart_ptr<int> sp3;
+
+// 	//cout << "Ref count is " << sp3.ref_count() << endl;	// Ref Count is 0
+
+// 	//sp3 = sp1;
+
+// 	//cout << "Ref count is " << sp1.ref_count() << endl;	// Ref Count is 2
+// 	//cout << "Ref count is " << sp3.ref_count() << endl;	// Ref Count is 2
+
+// 	//smart_ptr<int> sp4 = std::move(sp1);
+
+// 	//cout << *sp4 << " " << *sp3 << endl;        // prints 42 42
+// 	//cout << *sp1 << endl;                       // throws null_ptr_exception
+
+
+// 	//----------------------------------------------------------
+
+// 	int* p{ new int { 42 } };
+// 	smart_ptr<int> sp1{ new int(45) };
+
+// 	cout << "sp1 : " << *sp1 << endl;
+
+// 	cout << "Ref count is " << sp1.ref_count() << endl;	// Ref Count is 1
+// 	{
+// 		smart_ptr<int> sp2{ std::move(sp1) };
+// 		cout << "Ref count is " << sp1.ref_count() << endl;	// Ref Count is 2
+// 		cout << "Ref count is " << sp2.ref_count() << endl;	// Ref Count is 2
+// 	}
+// 	cout << "Ref count is " << sp1.ref_count() << endl;	// Ref Count is 1
+
+
+
+
+
+// 	return 0;
+// }
+
+//---------------------------------arrow------------
+
+// struct Point { int x = 2; int y = -5; };
+
+// int main() {
+
+// 	smart_ptr<Point> sp{ new Point };
+// 	cout << sp->x << " " << sp->y << endl;   // prints 2 -5
+// }
+
+// -----------------clone------------
+
+int main()
+{
+	smart_ptr<double> dsp1{ new double {3.14} };
+	{smart_ptr<double> dsp2, dsp3;
+
+	dsp3 = dsp2 = dsp1;
+
+	cout << dsp1.ref_count() << " " << dsp2.ref_count() << " " << dsp3.ref_count() << endl;
+	// prints 3 3 3
+	cout << *dsp1 << " " << *dsp2 << " " << *dsp3 << endl;
+	// prints 3.14 3.14 3.14
+
+	dsp1.clone();        // returns true
+
+	}
+
+	cout << dsp1.ref_count() << endl;
+	cout << *dsp1 << endl;
+
+
+	//cout << dsp1.ref_count() << " " << dsp2.ref_count() << " " << dsp3.ref_count() << endl;
+	//// prints 1 2 2
+	//cout << *dsp1 << " " << *dsp2 << " " << *dsp3 << endl;
+	//// prints 3.14 3.14 3.14
+
+	/*if (!dsp2.clone())
+		cout << "false\n";*/
+
+	cout << "problem??\n";
+
+
+	return 0;
+}
+
